@@ -1,0 +1,23 @@
+---
+title: "testfile"
+format: html
+editor: visual
+---
+
+## Dependency Management
+
+```{r}
+
+renv::restore()
+
+library(devtools)
+```
+
+## Install and load Metacheck
+
+```{r}
+
+# install.packages("devtools")
+devtools::install_github("scienceverse/metacheck")
+
+```
