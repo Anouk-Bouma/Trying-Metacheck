@@ -11,6 +11,8 @@ editor: visual
 renv::restore()
 
 library(devtools)
+library(shiny)
+library(metacheck)
 ```
 
 ## Install and load Metacheck
@@ -20,4 +22,28 @@ library(devtools)
 # install.packages("devtools")
 devtools::install_github("scienceverse/metacheck")
 
+```
+
+## Open Metacheck
+
+```{r}
+
+metacheck::metacheck_app()
+```
+
+## Create XML files of pdf's
+
+```{r}
+
+papers <- pdf2grobid(filename = "pdfs")
+
+paper_list <- read(papers)
+
+paper_list$info
+
+p <- module_run(paper_list, "code_check")
+p1 <- module_run(paper_list, "repo_check")
+
+p1[["table"]]
+p1[["summary_table"]]
 ```
